@@ -38,13 +38,8 @@ public class AstonCorrelationIdAutoConfiguration {
     @RequestScope
     @ConditionalOnMissingBean(CorrelationId.class)
     @ConditionalOnBean(CorrelationIdGenerator.class)
-    CorrelationId generatedCorrelationId(HttpServletRequest request, CorrelationIdGenerator correlationIdGenerator) {
-        if (correlationIdGenerator != null) {
-            return correlationIdGenerator.generate();
-        } else {
-            String correlationIdValue = request.getHeader(correlationIdProperties.getHeaderName());
-            return new CorrelationId(correlationIdValue);
-        }
+    CorrelationId generatedCorrelationId(CorrelationIdGenerator correlationIdGenerator) {
+        return correlationIdGenerator.generate();
     }
 
     @Bean

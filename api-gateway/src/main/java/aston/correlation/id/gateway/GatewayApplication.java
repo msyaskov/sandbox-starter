@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -32,18 +33,18 @@ public class GatewayApplication {
         return () -> new CorrelationId(UUID.randomUUID().toString());
     }
 
-    @Bean
+//    @Bean
 //    @ConditionalOnBefore(timestamp = 1735678800000L) // 1 января 2025 года
-    @ConditionalOnBefore(timestamp = 1672520400000L) // 1 января 2023 года
+//    @ConditionalOnBefore(timestamp = 1672520400000L) // 1 января 2023 года
+//    @ConditionalOnExpression("T(java.lang.System).currentTimeMillis() < 1735678800000L") // 1 января 2025 года
+//    @ConditionalOnExpression("T(java.lang.System).currentTimeMillis() < 1672520400000L") // 1 января 2023 года
     public String onBeforeConditionString() {
         return "onBeforeConditionString";
     }
 
-    @Bean
+//    @Bean
     public CommandLineRunner clr(@Autowired(required = false) String onBeforeConditionString) {
-        return args -> {
-            System.out.println("onBeforeConditionString = " + onBeforeConditionString);
-        };
+        return args -> System.out.println("onBeforeConditionString = " + onBeforeConditionString);
     }
 
 }

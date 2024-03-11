@@ -10,19 +10,6 @@ public class AstonCorrelationIdProperties {
      */
     private String headerName = "X-Correlation-Id";
 
-    /**
-     *
-     */
-    private boolean generator = false;
-
-    public boolean isGenerator() {
-        return generator;
-    }
-
-    public void setGenerator(boolean generator) {
-        this.generator = generator;
-    }
-
     public String getHeaderName() {
         return headerName;
     }
