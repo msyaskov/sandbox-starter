@@ -1,0 +1,5 @@
+rootProject.name = 'aston-correlation-id'
+include 'aston-correlation-id-spring-boot-starter'
+include 'api-gateway'
+include 'first-service'
+include 'second-service'

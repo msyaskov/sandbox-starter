@@ -1,0 +1,11 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "aston.correlation-id.enabled",
+      "description": "Whether a CorrelationId should be created.",
+      "defaultValue": "true"
+    }
+  ],
+  "hints": []
+}

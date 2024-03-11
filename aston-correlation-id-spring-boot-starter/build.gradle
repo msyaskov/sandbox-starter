@@ -1,0 +1,19 @@
+plugins {
+    id 'java-library'
+}
+
+group 'aston.correlation.id'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.2'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:3.2.2'
+}
+
+tasks.named('compileJava') {
+    inputs.files(tasks.named('processResources'))
+}
